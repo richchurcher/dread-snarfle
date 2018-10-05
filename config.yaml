@@ -7,3 +7,10 @@ plug:
   storage:
     class: plug.storage.sqlite.SqliteStorage
     path: db.sqlite
+
+# initial_state:
+#   free_money.model.BalanceModel:
+#     1Ax9pA92ZAeziwGfmG5qGSgZRZT9nbX3or:
+#         balance: 100
+#     12z3kokcMpB6a7RrCMzcYDryZk4V96gKgz:
+#         balance: 100
