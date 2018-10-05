@@ -1,0 +1,9 @@
+plug:
+  network_id: dread.snarfle
+  max_block_size: 100000
+  registry:
+    plugins:
+    - dread_snarfle.InventoryPlugin
+  storage:
+    class: plug.storage.sqlite.SqliteStorage
+    path: db.sqlite
