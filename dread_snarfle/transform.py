@@ -6,6 +6,7 @@ from typing import Set
 from dread_snarfle.model import CreatureModel, ItemModel
 from dread_snarfle.error import PlaceholderError
 
+
 @dataclass
 class CreatureEncounter(Transform):
     fqdn = 'dread_snarfle.transform.CreatureEncounter'
@@ -38,14 +39,14 @@ class CreatureEncounter(Transform):
         }
 
     @classmethod
-    def unpack(cls, registry, payload) -> CreatureEncounter:
+    def unpack(cls, registry, payload) -> 'CreatureEncounter':
         return cls(
-            player = payload['player'],
-            creature = payload['creature'],
+            player=payload['player'],
+            creature=payload['creature'],
         )
 
     def verify(self, state_slice) -> None:
-        item = state_slice[ItemModel.fqdn]
+        #  item = state_slice[ItemModel.fqdn]
 
         if self.intact <= 0:
             raise PlaceholderError('Already broken!')
