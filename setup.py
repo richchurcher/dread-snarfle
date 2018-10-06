@@ -23,6 +23,8 @@ setuptools.setup(
             'flake8-commas',
             'flake8-isort',
             'flake8-mypy',
+            'flake8-pyi',
+            'flake8-type-annotations',
             'flake8-quotes',
             'pytest-cov',
         ),
