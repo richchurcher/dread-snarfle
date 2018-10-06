@@ -6,8 +6,8 @@ from plug.abstract import Model
 @dataclass
 class ItemModel(Model):
     fqdn = 'dread_snarfle.model.ItemModel'
-    intact: int
-    name: str
+    intact: int = 0
+    name: str = None
     names: list = None
     repairs: dict = None
     qualities: dict = None
@@ -42,8 +42,8 @@ class ItemModel(Model):
 @dataclass
 class CreatureModel(Model):
     fqdn = 'dread_snarfle.model.CreatureModel'
-    intact: int
-    name: str
+    intact: int = 0
+    name: str = None
 
     @classmethod
     def default_factory(cls) -> 'CreatureModel':
@@ -69,30 +69,30 @@ class CreatureModel(Model):
 @dataclass
 class PlayerModel(Model):
     fqdn = 'dread_snarfle.model.PlayerModel'
-    intact: int
-    name: str
-    email: str
+    intact: int = 0
+    item: str = None
+    name: str = None
 
     @classmethod
     def default_factory(cls, registry, payload) -> 'PlayerModel':
         return cls(
             intact=payload['intact'],
+            item=payload['item'],
             name=payload['name'],
-            email=payload['email']
         )
 
     @staticmethod
     def pack(registry, obj) -> dict:
         return {
             'intact': obj.intact,
+            'item': obj.item,
             'name': obj.name,
-            'email': obj.email,
         }
 
     @classmethod
     def unpack(cls, registry, payload) -> 'PlayerModel':
         return cls(
             intact=payload['intact'],
+            item=payload['item'],
             name=payload['name'],
-            email=payload['email'],
         )

@@ -46,11 +46,16 @@ class CreatureEncounter(Transform):
         )
 
     def verify(self, state_slice) -> None:
-        #  item = state_slice[ItemModel.fqdn]
+        creatures = state_slice[CreatureModel.fqdn]
 
         if self.intact <= 0:
             raise PlaceholderError('Already broken!')
 
+        if creatures[self.creature].intact <= 0:
+            raise PlaceholderError('Creature is dead!')
+
     def apply(self, state_slice) -> None:
-        item = state_slice[ItemModel.fqdn]
-        item[self.owner].intact -= 50
+        items = state_slice[ItemModel.fqdn]
+        items[self.player].intact -= 50
+        creatures = state_slice[CreatureModel.fqdn]
+        creatures[self.creature].intact -= 50

@@ -22,8 +22,8 @@ plug:
       1Bacse5aevmV6UjnfAc3yJEmhqL9yFsixr:
         intact: 100
         name: 'Testy McTesterson'
-        email: 'testy@example.com'
+        item: '1NwG8T5KPrkiLV6bv5unmkiRFgWRSBUX89'
     dread_snarfle.model.ItemModel:
-      1Bacse5aevmV6UjnfAc3yJEmhqL9yFsixr:
+      1NwG8T5KPrkiLV6bv5unmkiRFgWRSBUX89:
         intact: 100
         name: 'Tarnished Kitchen Knife'
