@@ -1,18 +1,14 @@
 #!/usr/bin/env python
 import setuptools
 
-version = '0.1.0'
-
-install_requires = ()
-
 setuptools.setup(
     name='dread_snarfle',
-    version=version,
+    version='0.1.0',
     author='Rich Churcher',
     author_email='rich.churcher@gmail.com',
     url='https://github.com/richchurcher/dread-snarfle',
     packages=['dread_snarfle'],
-    install_requires=install_requires,
+    install_requires=(),
     setup_requires=['pytest-runner'],
 
     extras_require={

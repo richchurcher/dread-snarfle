@@ -13,3 +13,7 @@ python_version = "3.7"
 
 [packages.plug-framework]
 path = "./../plug-libs/plug_framework-0.0.24-py3-none-any.whl"
+
+[packages.dread-snarfle]
+editable = true
+path = "."
