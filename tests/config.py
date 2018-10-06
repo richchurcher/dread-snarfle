@@ -6,19 +6,23 @@ from plug.cli.util import init_registry
 from plug.config import Config
 from plug_api.key_managers.memory import InMemoryKeyManager
 
-@pytest.fixture(name='dapp_registry')
-def fixture_dapp_registry():
+import dread_snarfle
+
+
+@pytest.fixture(scope='session')
+def dapp_registry():
     """
     Returns a registry object pre-configured with the ÐApp's models and
     transforms.
     """
     # Load ÐApp models and transforms from the node configuration.
-    config_file = (Path(free_money.__path__[0]) / '..' / 'config.yaml').resolve()
+    config_file = (Path(dread_snarfle.__path__[0]) / '..' / 'config.yaml').resolve()
     config = Config(DEVELOP_NETWORK).load(config_file)
     return init_registry(config)
 
-@pytest.fixture(name='key_manager')
-def fixture_key_manager():
+
+@pytest.fixture(scope='session')
+def key_manager():
     """
     Returns a key manager for use in unit tests.
     """
