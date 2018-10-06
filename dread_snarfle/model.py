@@ -8,9 +8,9 @@ class ItemModel(Model):
     fqdn = 'dread_snarfle.model.ItemModel'
     intact: int
     name: str
-    names: list
-    repairs: dict
-    qualities: dict
+    names: list = None
+    repairs: dict = None
+    qualities: dict = None
 
     @classmethod
     def default_factory(cls) -> 'ItemModel':
@@ -42,8 +42,8 @@ class ItemModel(Model):
 @dataclass
 class CreatureModel(Model):
     fqdn = 'dread_snarfle.model.CreatureModel'
-    intact: int = 0
-    name: str = ''
+    intact: int
+    name: str
 
     @classmethod
     def default_factory(cls) -> 'CreatureModel':
@@ -63,4 +63,36 @@ class CreatureModel(Model):
         return cls(
             intact=payload['intact'],
             name=payload['name'],
+        )
+
+
+@dataclass
+class PlayerModel(Model):
+    fqdn = 'dread_snarfle.model.PlayerModel'
+    intact: int
+    name: str
+    email: str
+
+    @classmethod
+    def default_factory(cls, registry, payload) -> 'PlayerModel':
+        return cls(
+            intact=payload['intact'],
+            name=payload['name'],
+            email=payload['email']
+        )
+
+    @staticmethod
+    def pack(registry, obj) -> dict:
+        return {
+            'intact': obj.intact,
+            'name': obj.name,
+            'email': obj.email,
+        }
+
+    @classmethod
+    def unpack(cls, registry, payload) -> 'PlayerModel':
+        return cls(
+            intact=payload['intact'],
+            name=payload['name'],
+            email=payload['email'],
         )
