@@ -72,12 +72,14 @@ class PlayerModel(Model):
     intact: int = 0
     item: str = None
     name: str = None
+    model: str = None
 
     @classmethod
     def default_factory(cls, registry, payload) -> 'PlayerModel':
         return cls(
             intact=payload['intact'],
             item=payload['item'],
+            model=payload['model'],
             name=payload['name'],
         )
 
@@ -86,6 +88,7 @@ class PlayerModel(Model):
         return {
             'intact': obj.intact,
             'item': obj.item,
+            'model': obj.model,
             'name': obj.name,
         }
 
@@ -94,5 +97,6 @@ class PlayerModel(Model):
         return cls(
             intact=payload['intact'],
             item=payload['item'],
+            model=payload['model'],
             name=payload['name'],
         )

@@ -41,7 +41,7 @@ def item(item_properties):
 @pytest.fixture
 def player():
     from dread_snarfle.model import PlayerModel
-    return PlayerModel(100, 'Testy McTesterson', 'testy@example.com')
+    return PlayerModel(100, 'Testy McTesterson', '1234567ABCDE')
 
 
 def test_creature_constructor(creature):
@@ -55,3 +55,9 @@ def test_item_constructor(item, item_properties):
     assert item.names == item_properties['names']
     assert item.repairs == item_properties['repairs']
     assert item.qualities == item_properties['qualities']
+
+
+def test_player_constructor(player):
+    assert player.intact == 100
+    assert player.name == 'Testy McTesterson'
+    assert player.model == '1234567ABCDE'
