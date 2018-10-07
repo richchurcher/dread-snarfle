@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from plug.abstract import Transform
 from typing import Set
 
-from dread_snarfle.model import CreatureModel, ItemModel
+from dread_snarfle.model import CreatureModel, ItemModel, PlayerModel
 from dread_snarfle.error import PlaceholderError
 
 
@@ -23,6 +23,7 @@ class CreatureEncounter(Transform):
         return {
             CreatureModel.fqdn,
             ItemModel.fqdn,
+            PlayerModel.fqdn,
         }
 
     def required_keys(self) -> Set[str]:
@@ -55,7 +56,16 @@ class CreatureEncounter(Transform):
             raise PlaceholderError('Creature is dead!')
 
     def apply(self, state_slice) -> None:
-        items = state_slice[ItemModel.fqdn]
-        items[self.player].intact -= 50
         creatures = state_slice[CreatureModel.fqdn]
         creatures[self.creature].intact -= 50
+
+        items = state_slice[ItemModel.fqdn]
+        players = state_slice[PlayerModel.fqdn]
+        item_hash = players[self.player].item
+        items[item_hash].intact -= 50
+
+        if creatures[self.creature].intact <= 0:
+            if items[item_hash].names == None:
+                items[item_hash].names == []
+
+            items[item_hash].names.append('Slayer of ' + creatures[self.creature].name)
