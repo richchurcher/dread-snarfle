@@ -48,5 +48,5 @@ class AssignPlayer(Transform):
         players = state_slice[PlayerModel.fqdn]
         players.append(PlayerModel(
             intact=100,
-            name
+            name=self.name
         ))
