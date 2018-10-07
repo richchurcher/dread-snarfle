@@ -65,7 +65,7 @@ class CreatureEncounter(Transform):
         items[item_hash].intact -= 50
 
         if creatures[self.creature].intact <= 0:
-            if items[item_hash].names == None:
+            if items[item_hash].names is None:
                 items[item_hash].names == []
 
             items[item_hash].names.append('Slayer of ' + creatures[self.creature].name)

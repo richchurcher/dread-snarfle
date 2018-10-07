@@ -8,22 +8,23 @@ plug:
     class: plug.storage.sqlite.SqliteStorage
     path: db.sqlite
   initial_state:
-    dread_snarfle.model.CreatureModel:
-      XGgFJLhnEAzrVV89Pw5Qy2b42Sw5:
-        intact: 100
-        name: 'Confused Wumpus'
-      1NCPcwS57c2YBQPdbdpheWZoZCrSyHobki:
-        intact: 100
-        name: 'Moderately Impressive Heehaw'
-      1JHcs4A1UpEUsjPcFZbT2hfGKbEhf6eQzc:
-        intact: 100
-        name: 'Dread Snarfle'
-    dread_snarfle.model.PlayerModel:
-      1Bacse5aevmV6UjnfAc3yJEmhqL9yFsixr:
-        intact: 100
-        name: 'Testy McTesterson'
-        item: '1NwG8T5KPrkiLV6bv5unmkiRFgWRSBUX89'
     dread_snarfle.model.ItemModel:
       1NwG8T5KPrkiLV6bv5unmkiRFgWRSBUX89:
         intact: 100
         name: 'Tarnished Kitchen Knife'
+
+    # dread_snarfle.model.CreatureModel:
+    #   XGgFJLhnEAzrVV89Pw5Qy2b42Sw5:
+    #     intact: 100
+    #     name: 'Confused Wumpus'
+    #   1NCPcwS57c2YBQPdbdpheWZoZCrSyHobki:
+    #     intact: 100
+    #     name: 'Moderately Impressive Heehaw'
+    #   1JHcs4A1UpEUsjPcFZbT2hfGKbEhf6eQzc:
+    #     intact: 100
+    #     name: 'Dread Snarfle'
+    # dread_snarfle.model.PlayerModel:
+    #   1Bacse5aevmV6UjnfAc3yJEmhqL9yFsixr:
+    #     intact: 100
+    #     name: 'Testy McTesterson'
+    #     item: '1NwG8T5KPrkiLV6bv5unmkiRFgWRSBUX89'
