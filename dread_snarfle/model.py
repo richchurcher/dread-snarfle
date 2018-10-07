@@ -71,8 +71,8 @@ class PlayerModel(Model):
     fqdn = 'dread_snarfle.model.PlayerModel'
     intact: int = 0
     item: str = None
-    name: str = None
     model: str = None
+    name: str = None
 
     @classmethod
     def default_factory(cls, registry, payload) -> 'PlayerModel':
