@@ -8,3 +8,10 @@
  - you can still sell stuff
  - Josh mentions items could be traded in and out of compatible Plug games
  - creatures could wander in and out of compatible Plug games
+ - tech: Plug a relatively easy entry point
+ - idea of a creature as a 'user', albeit managed by the game
+   - permission to slay
+   - encounter transform
+ - however: pain point associating 'users' with other models in the system
+   - possible misunderstanding of the problem in Plug terms
+   - manipulating string properties to track references to other models, error-prone
